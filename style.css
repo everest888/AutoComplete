@@ -13,6 +13,7 @@ body {
 }
 
 header {
+    margin: auto;
     width: 1280px;
     height: 474px;
 }
