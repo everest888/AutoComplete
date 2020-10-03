@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="images">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <title>StroyPortal</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="up-head">
+            <div>
+                <img src="images/Group 970.png">
+                Волгоградская область
+            </div>
+            <div>
+                <nav>
+                    <a href="#">Тендеры</a>
+                    <a href="#">База подрядчиков</a>
+                    <select>Другие сервисы
+                        <option>Другие сервисы</option>
+                        <option>Другие сервисы</option>
+                        <option>Другие сервисы</option>
+                        <option>Другие сервисы</option>
+                        <option>Другие сервисы</option>
+                    </select>
+                </nav>
+            </div>
+        </div>
+        <div class="center-head">
+            <img src="images/Group.png">
+            <button class="reorder">
+                <span class="material-icons">reorder</span>
+                <div class="katalog">Каталог</div>
+            </button>
+            <div id="app">
+                <div class="autocomplete">
+                    <input @blur="onBlur=true" @focus="onFocus = true;onBlur = false;" v-model="autocomplete" @keyDown="keyDown"
+                        id="search" type="text" name="autoomplete" placeholder="Хочу найти">
+                    <div class="autocomplete-items">
+            
+                        <div :class="currentFocus == index ? 'autocomplete-active' : ''" v-for="(i, index) in arr"
+                            v-if="onFocus && i.substr(0, autocomplete.length).toUpperCase() == autocomplete.toUpperCase()"
+                            @click="autocomplete = i; onFocus = false;">
+                            <strong>{{i.substr(0, autocomplete.length)}}</strong>{{i.substr(autocomplete.length)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="list">
+                <span class="material-icons">list</span>
+                <div class="katalog">Список</div>
+            </button>
+            <div class="circle">A</div>
+        </div>
+
+    </header>
+
+    <script type="text/javascript" src="style.js"></script>
+</body>
+
+
+</html>
